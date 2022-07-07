@@ -29,7 +29,7 @@ public class ReptiloydTest {
         Reptiloyd reptiloyd = new Reptiloyd();
         assertFalse(reptiloyd.isDead());
         reptiloyd.dead();
-        assertTrue(reptiloyd.isDead());
+        assertTrue(reptiloyd.isDead()); 
     }
 
     /* Задание 1 */
