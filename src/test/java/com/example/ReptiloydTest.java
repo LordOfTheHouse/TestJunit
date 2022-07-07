@@ -39,7 +39,7 @@ public class ReptiloydTest {
         doReturn("Georg").when(mockB).getName();
         Reptiloyd reptiloyd = new Reptiloyd();
         reptiloyd.setHuman(mockB);
-        assertEquals("Georg", reptiloyd.getHumanName());
+        assertEquals("Georg", reptiloyd.getHumanName()); 
     }
 
     /* Задание 2 */
@@ -47,7 +47,7 @@ public class ReptiloydTest {
     public void spiedCreatedHumanTest() {
         Reptiloyd testedClass = spy(Reptiloyd.class);
         testedClass.createdHuman();
-        verify(testedClass, times(1)).createdHuman();
+        verify(testedClass, times(1)).createdHuman(); 
     }
 
     /* Задание 3 */
