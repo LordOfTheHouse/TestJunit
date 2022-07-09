@@ -6,7 +6,7 @@ public class LambdaWork {
     return one.getDigit();
   }
 
-  public static int sumRandomDigit(TwoArgumentFunctionalInterface two) {
+  public static int FunctionOneArgument(TwoArgumentFunctionalInterface two) {
     return two.oneDigit(20);
   }
 
@@ -21,7 +21,7 @@ public class LambdaWork {
 
     System.out.println(ten);
 
-    int digits = sumRandomDigit(
+    int digits = FunctionOneArgument(
       new TwoArgumentFunctionalInterface() {
         @Override
         public int oneDigit(int digit) {

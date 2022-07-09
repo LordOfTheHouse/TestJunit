@@ -25,7 +25,6 @@ public class StreamWork {
     System.out.printf("%.2f\n", averageLi);
 
     // 2
-
     Set<String> set = Set.of(
       "qwertyyuity",
       "ewqrkjlsdfsdop",
@@ -60,16 +59,15 @@ public class StreamWork {
       .collect(Collectors.toList());
     listKeyAndValue.forEach(System.out::println);
 
-    listKeyAndValue =
-      map
+    listKeyAndValue = map
         .entrySet()
         .stream()
         .flatMap(x -> Stream.of(x.getKey(), x.getValue()))
         .collect(Collectors.toList());
     listKeyAndValue.forEach(System.out::println);
+
     // 4
     Reptiloyd o = null;
-
     o = Optional.ofNullable(o).orElseGet(Reptiloyd::new);
     System.out.println(o.getNumberOfHumans());
   }
