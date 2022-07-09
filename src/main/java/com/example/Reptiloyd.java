@@ -5,19 +5,19 @@ import java.util.ArrayList;
 
 public class Reptiloyd {
     private int hp;
-    private int NumberOfHumans;
+    private int numberOfHumans;
     private Human human;
     private ArrayList<Human> cloneHumans;
 
     public Reptiloyd() {
         hp = 10000;
-        NumberOfHumans = 0;
+        numberOfHumans = 0;
     }
 
     public String createdHuman() {
         if (human != null)
             return "The human has already been created";
-        NumberOfHumans = 1;
+        numberOfHumans = 1;
         human = new Human("Georg", this);
         cloneHumans = new ArrayList<>();
         cloneHumans.add(human);
@@ -25,11 +25,11 @@ public class Reptiloyd {
     }
 
     public boolean cloneHuman() throws LimitedCloneException {
-        if (NumberOfHumans == 5)
+        if (numberOfHumans == 5)
             throw new LimitedCloneException("Limited clone");
-        if (NumberOfHumans == 0)
+        if (numberOfHumans == 0)
             return false;
-        NumberOfHumans++;
+        numberOfHumans++;
         cloneHumans.add(human);
         return true;
     }
@@ -51,7 +51,7 @@ public class Reptiloyd {
     }
 
     public int getNumberOfHumans() {
-        return NumberOfHumans;
+        return numberOfHumans;
     }
 
     public void setHuman(Human h) {

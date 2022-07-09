@@ -1,4 +1,4 @@
-package  com.example.lambda;
+package com.example.lambda;
 
 @FunctionalInterface
 public interface OneArgumentFunctionalInterface {
