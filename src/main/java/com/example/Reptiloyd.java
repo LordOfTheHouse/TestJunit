@@ -2,13 +2,8 @@ package com.example;
 
 import java.util.ArrayList;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
-@Data
-@AllArgsConstructor
 public class Reptiloyd {
-
     private int hp;
     private int NumberOfHumans;
     private Human human;
@@ -53,10 +48,6 @@ public class Reptiloyd {
 
     public boolean isDead() {
         return hp == 0;
-    }
-
-    private int getHp() {
-        return hp;
     }
 
     public int getNumberOfHumans() {
