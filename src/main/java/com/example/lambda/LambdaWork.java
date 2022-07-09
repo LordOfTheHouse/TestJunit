@@ -32,11 +32,7 @@ public class LambdaWork {
 		});
 		
 		System.out.println(digits);
-		
 		System.out.println(equalsTwoDigits((a, b) -> a == b));
-		
-		
-		
 	}
 
 }
