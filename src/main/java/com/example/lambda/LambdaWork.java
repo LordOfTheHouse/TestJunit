@@ -15,24 +15,5 @@ public class LambdaWork {
   ) {
     return three.booleanFunc(20, 25);
   }
-
-  public static void main(String... s) {
-    int ten = getDigit(() -> 10);
-
-    System.out.println(ten);
-
-    int digits = FunctionOneArgument(
-      new TwoArgumentFunctionalInterface() {
-        @Override
-        public int oneDigit(int digit) {
-          int d = (int) (Math.random() * 10);
-          System.out.println("Random digit: " + d);
-          return digit + d;
-        }
-      }
-    );
-
-    System.out.println(digits);
-    System.out.println(equalsTwoDigits((a, b) -> a == b));
-  }
+  
 }
