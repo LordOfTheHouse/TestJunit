@@ -12,15 +12,15 @@ import java.util.stream.Stream;
 
 public class StreamWork {
 
-  public static String getAverage(List<Integer> li) {
-    Double averageLi = li
+  public static double getAverage(List<Integer> li) {
+    double averageLi = li
       .stream()
       .limit(7)
       .map(x -> (x % 2 == 0) ? x + 5 : x - 5)
       .mapToInt(e -> e)
       .average()
       .getAsDouble();
-    return averageLi.toString();
+    return averageLi;
   }
 
   public static Map<String, Integer> getMap(Set<String> set) {

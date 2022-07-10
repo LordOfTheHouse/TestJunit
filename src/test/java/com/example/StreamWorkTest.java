@@ -16,9 +16,9 @@ public class StreamWorkTest {
     List<Integer> li1 = List.of(0, 0, 0, 0, 0, 0, 0, 8, 9, 10);
     List<Integer> li2 = List.of(1, 1, 1, 1, 1, 1, 1, 8, 9, 10);
     List<Integer> li3 = List.of(2, 2, 2, 2, 2, 2, 2, 8, 9, 10);
-    assertEquals("5.0", StreamWork.getAverage(li1));
-    assertEquals("-4.0", StreamWork.getAverage(li2));
-    assertEquals("7.0", StreamWork.getAverage(li3));
+    assertEquals(5.0, StreamWork.getAverage(li1), 0.1);
+    assertEquals(-4.0, StreamWork.getAverage(li2), 0.1);
+    assertEquals(7.0, StreamWork.getAverage(li3), 0.1);
   }
 
   @Test
