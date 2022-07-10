@@ -12,63 +12,47 @@ import java.util.stream.Stream;
 
 public class StreamWork {
 
-  public static void main(String[] args) {
-    // 1
-    List<Integer> li = List.of(7, 2, 236, 11, 76, 67, 81, 88, 93, 128);
-    double averageLi = li
+  public static String getAverage(List<Integer> li) {
+    Double averageLi = li
       .stream()
       .limit(7)
       .map(x -> (x % 2 == 0) ? x + 5 : x - 5)
       .mapToInt(e -> e)
       .average()
       .getAsDouble();
-    System.out.printf("%.2f\n", averageLi);
+    return averageLi.toString();
+  }
 
-    // 2
-    Set<String> set = Set.of(
-      "qwertyyuity",
-      "ewqrkjlsdfsdop",
-      "werwerew",
-      "werwerwerwer",
-      "we",
-      "werwerewrwetgdsfgs",
-      "rwer",
-      "Werwer",
-      "SDfsdgdsg",
-      "xzbbhxfhhafdg"
-    );
-
+  public static Map<String, Integer> getMap(Set<String> set) {
     Map<String, Integer> mp = set
       .stream()
       .filter(x -> x.length() > 10)
       .collect(Collectors.toMap(Function.identity(), String::length));
-    mp.entrySet().forEach(System.out::println);
+    return mp;
+  }
 
-    // 3
-    HashMap<String, String> map = new HashMap<>();
-    map.put("1", "one");
-    map.put("2", "two");
-    map.put("3", "three");
-    map.put("4", "four");
-    map.put("5", "five");
-
+  public static List<String> getKeyDoubleEqualValue(
+    HashMap<String, String> map
+  ) {
     List<String> listKeyAndValue = map
       .entrySet()
       .stream()
       .map(x -> x.getKey() + " == " + x.getValue())
       .collect(Collectors.toList());
-    listKeyAndValue.forEach(System.out::println);
+    return listKeyAndValue;
+  }
 
-    listKeyAndValue = map
-        .entrySet()
-        .stream()
-        .flatMap(x -> Stream.of(x.getKey(), x.getValue()))
-        .collect(Collectors.toList());
-    listKeyAndValue.forEach(System.out::println);
+  public static List<String> getListKeyAndValue(HashMap<String, String> map) {
+    List<String> listKeyAndValue = map
+      .entrySet()
+      .stream()
+      .flatMap(x -> Stream.of(x.getKey(), x.getValue()))
+      .collect(Collectors.toList());
+    return listKeyAndValue;
+  }
 
-    // 4
-    Reptiloyd o = null;
-    o = Optional.ofNullable(o).orElseGet(Reptiloyd::new);
-    System.out.println(o.getNumberOfHumans());
+  public static int getNumberHumans(Reptiloyd reptiloyd) {
+    reptiloyd = Optional.ofNullable(reptiloyd).orElseGet(Reptiloyd::new);
+    return reptiloyd.getNumberOfHumans();
   }
 }
