@@ -27,9 +27,9 @@ public class RoomTest {
 
     @Test
     public void reflectionOfMethods() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException{
-       /*  Room room = new Room();
+        Room room = new Room();
         Method method = room.getClass().getDeclaredMethod("equalsIdAndSize");
         method.setAccessible(true);
-        method.invoke(myClass);*/
+        System.out.println(method.invoke(room));
     }
 }

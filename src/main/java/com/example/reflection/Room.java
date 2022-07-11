@@ -5,13 +5,13 @@ public class Room {
     private int id;
     public int size;
 
-    private boolean equalsIdAndSize(){
+    private boolean equalsIdAndSize() throws NullPointerException{
         id = (int) Math.random();
         size = (int) Math.random();
         return id > size;
     }
 
-    private int DigitWal() throws NullPointerException{
+    public int DigitWal(){
         return 4;
     }
 
