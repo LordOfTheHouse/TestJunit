@@ -6,7 +6,7 @@ public class LambdaWork {
     return one.getDigit();
   }
 
-  public static int FunctionOneArgument(TwoArgumentFunctionalInterface two) {
+  public static int functionOneArgument(TwoArgumentFunctionalInterface two) {
     return two.oneDigit(20);
   }
 

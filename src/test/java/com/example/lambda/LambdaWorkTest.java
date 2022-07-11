@@ -27,10 +27,10 @@ public class LambdaWorkTest {
 
   @Test
   public void FunctionOneArgumentTest() {
-    assertEquals(200, LambdaWork.FunctionOneArgument(d -> d * 10));
+    assertEquals(200, LambdaWork.functionOneArgument(d -> d * 10));
     assertEquals(
       30,
-      LambdaWork.FunctionOneArgument(
+      LambdaWork.functionOneArgument(
         new TwoArgumentFunctionalInterface() {
           @Override
           public int oneDigit(int digit) {
@@ -40,7 +40,7 @@ public class LambdaWorkTest {
         }
       )
     );
-    assertEquals(0, LambdaWork.FunctionOneArgument(d -> d - 20));
+    assertEquals(0, LambdaWork.functionOneArgument(d -> d - 20));
   }
 
   @Test
