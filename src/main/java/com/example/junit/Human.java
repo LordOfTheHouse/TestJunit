@@ -1,4 +1,4 @@
-package com.example;
+package com.example.junit;
 
 public class Human {
     private int hp;
