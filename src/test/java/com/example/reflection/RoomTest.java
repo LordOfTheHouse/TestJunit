@@ -30,7 +30,7 @@ public class RoomTest {
         method.setAccessible(true);
         System.out.println(method.invoke(room));
 
-        Arrays.stream(resultGetClass.getDeclaredMethods()).forEach(x -> System.out.println(x.getName()));
+        Arrays.stream(resultGetClass.getSuperclass().getDeclaredMethods()).forEach(x -> System.out.println(x.getName()));
         Arrays.stream(method.getExceptionTypes()).forEach(x -> System.out.println(x.getSimpleName()));
     }
 
