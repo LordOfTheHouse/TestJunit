@@ -66,4 +66,8 @@ public class Reptiloyd {
         return human.getName(); 
     }
 
+    private int getHp(){
+        return hp;
+    }
+
 }
