@@ -15,5 +15,4 @@ public class LambdaWork {
   ) {
     return three.booleanFunc(20, 25);
   }
-  
 }

@@ -1,9 +1,11 @@
-package com.example;
+package com.example.stream;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import com.example.stream.StreamWork;
+import com.example.junit.LimitedCloneException;
+import com.example.junit.Reptiloyd;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;

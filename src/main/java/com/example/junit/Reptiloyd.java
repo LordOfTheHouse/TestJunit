@@ -1,4 +1,4 @@
-package com.example;
+package com.example.junit;
 
 import java.util.ArrayList;
 

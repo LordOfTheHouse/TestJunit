@@ -1,6 +1,5 @@
 package com.example.stream;
 
-import com.example.Reptiloyd;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +8,8 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import com.example.junit.Reptiloyd;
 
 public class StreamWork {
 
