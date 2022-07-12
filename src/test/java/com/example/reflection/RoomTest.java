@@ -14,9 +14,9 @@ public class RoomTest {
         Field publicField = resultGetClass.getDeclaredField("name");
         Field protectedField = resultGetClass.getDeclaredField("id");
         privateField.setAccessible(true);
-        privateField.set(room, 3);
+        privateField.setInt(room, 3);
 
-        int size = (int) privateField.get(room);
+        int size = (int) privateField.getInt(room);
         System.out.println(size);
         System.out.println(publicField.getName());
         System.out.println(protectedField.getType());
