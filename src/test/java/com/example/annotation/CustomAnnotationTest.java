@@ -35,17 +35,18 @@ public class CustomAnnotationTest {
     public void startMethods(Method method) {
         Map<Method, Integer> mp = doCommand();
         int methodQueueNumber = mp.get(method);
-        mp = mp.entrySet().stream().sorted(Map.Entry.comparingByValue())
-        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-        mp.entrySet()
-                .forEach(m -> {
-                    try {
-                        if(m.getValue() <= methodQueueNumber)
-                            System.out.println(m.getKey().invoke(this));
-                    } catch (Exception e) {
-                        return;
-                    }
-                });
+        mp
+            .entrySet()
+            .stream()
+            .sorted(Map.Entry.comparingByValue())
+            .forEach(m -> {
+                try {
+                    if(m.getValue() <= methodQueueNumber)
+                        System.out.println(m.getKey().invoke(this));
+                } catch (Exception e) {
+                    return;
+                }
+            });
     }
 
     @Test
