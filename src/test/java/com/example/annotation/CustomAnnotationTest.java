@@ -60,6 +60,6 @@ public class CustomAnnotationTest {
 
     @Test
     public void doCommandTest() {
-       System.out.println(doCommand());
+        System.out.println(doCommand());
     }
 }
