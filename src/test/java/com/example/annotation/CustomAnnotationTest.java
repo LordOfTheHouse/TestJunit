@@ -28,23 +28,24 @@ public class CustomAnnotationTest {
 
     public Map<Method, Integer> doCommand() {
         return Arrays.stream(this.getClass().getDeclaredMethods())
-                .filter(m -> m.isAnnotationPresent(CustomAnnotation.class)).collect(Collectors.toMap(
-                        Function.identity(), value -> value.getAnnotation(CustomAnnotation.class).queueNumber()));
+                .filter(m -> m.isAnnotationPresent(CustomAnnotation.class)).collect(Collectors.toMap(Function.identity(),
+                        value -> value.getAnnotation(CustomAnnotation.class).queueNumber()));
     }
 
     public void startMethods(Method method) {
         Map<Method, Integer> mp = doCommand();
         int methodQueueNumber = mp.get(method);
         mp = mp.entrySet().stream().sorted(Map.Entry.comparingByValue())
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-        mp.entrySet().stream().forEach(m -> {
-            try {
-                if (m.getValue() <= methodQueueNumber)
-                    System.out.println(m.getKey().invoke(this));
-            } catch (Exception e) {
-                return;
-            }
-        });
+        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+        mp.entrySet()
+                .forEach(m -> {
+                    try {
+                        if(m.getValue() <= methodQueueNumber)
+                            System.out.println(m.getKey().invoke(this));
+                    } catch (Exception e) {
+                        return;
+                    }
+                });
     }
 
     @Test
@@ -59,6 +60,6 @@ public class CustomAnnotationTest {
 
     @Test
     public void doCommandTest() {
-        System.out.println(doCommand());
+       System.out.println(doCommand());
     }
 }
