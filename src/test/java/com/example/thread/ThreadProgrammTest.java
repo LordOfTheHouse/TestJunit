@@ -1,6 +1,7 @@
 package com.example.thread;
 
 import org.junit.Test;
+import java.lang.Runnable;
 
 public class ThreadProgrammTest {
 
@@ -34,10 +35,14 @@ public class ThreadProgrammTest {
         sideThread.start();
     }
 
+    private Runnable convertRunnable(Runnable runnable){
+        return runnable;
+    }
+
     @Test
     public void checksRise() {
         Production products = new Production();
-        Thread th1 = new Thread(() -> {
+        Thread th1 = new Thread(convertRunnable(() -> {
             for (int index = 0; index < 10; index++) {
                 try {
                     products.addProduct();
@@ -45,8 +50,8 @@ public class ThreadProgrammTest {
                     return;
                 }
             }
-        });
-        Thread th2 = new Thread(() -> {
+        }));
+        Thread th2 = new Thread(convertRunnable(() -> {
             for (int index = 0; index < 10; index++) {
                 try {
                     products.removeProduct();
@@ -54,7 +59,7 @@ public class ThreadProgrammTest {
                     return;
                 }
             }
-        });
+        }));
         th1.start();
         th2.start();
     }

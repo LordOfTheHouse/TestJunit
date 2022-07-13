@@ -10,6 +10,7 @@ public class Production {
             wait(); 
         }
         products++;
+        System.out.println(products);
         notify();
     }
 
@@ -18,6 +19,7 @@ public class Production {
             wait(); 
         }
         products--;
+        System.out.println(products);
         notify();
     }
 }
