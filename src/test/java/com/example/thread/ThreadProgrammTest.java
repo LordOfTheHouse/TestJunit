@@ -43,22 +43,18 @@ public class ThreadProgrammTest {
     public void checksRise() {
         Production products = new Production();
         Thread th1 = new Thread(convertRunnable(() -> {
-            for (int index = 0; index < 10; index++) {
-                try {
-                    products.addProduct();
-                } catch (InterruptedException e) {
-                    return;
-                }
+            try {
+                products.addProduct();
+            } catch (InterruptedException e) {
+                return;
             }
         }));
-        Thread th2 = new Thread(convertRunnable(() -> {
-            for (int index = 0; index < 10; index++) {
+        Thread th2 = new Thread(convertRunnable(() -> {           
                 try {
                     products.removeProduct();
                 } catch (InterruptedException e) {
                     return;
-                }
-            }
+                }      
         }));
         th1.start();
         th2.start();
