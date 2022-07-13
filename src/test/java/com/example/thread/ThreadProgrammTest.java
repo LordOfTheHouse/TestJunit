@@ -24,18 +24,14 @@ public class ThreadProgrammTest {
     @Test
     public void interrupting() {
         Thread sideThread = new Thread(() -> {
-            while (!Thread.currentThread().isInterrupted()) {
-                System.out.println("побочный");
+            try {
+                Thread.sleep(100000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         });
-        Thread mainThread = new Thread(() -> {
-            for (int i = 0; i < 10; i++) {
-                System.out.println("основной");
-            }
-            sideThread.interrupt();
-        });
+        sideThread.setDaemon(true);
         sideThread.start();
-        mainThread.start();
     }
 
     @Test
@@ -64,46 +60,42 @@ public class ThreadProgrammTest {
     }
 
     @Test
-    public void createDemon() {
+    public void createDemon() throws InterruptedException{
         Object lock = new Object();
-        Thread taskThread = new Thread(() -> {
-            long startTime = System.currentTimeMillis();
-            synchronized (lock) {
-                try {
-                    while (true) {
+        Thread taskThread = new Thread(() -> { 
+            try {
+                while (true) {  
+                    Thread.sleep(5000);
+                    synchronized (lock) {
                         System.out.println("Вечность не бесконечна");
-                        if (System.currentTimeMillis() - startTime >= 5000)
-                            lock.wait();
+                        lock.notify();
                     }
-                } catch (InterruptedException e) {
-                    return;
                 }
+            } catch (InterruptedException e) {
+                return;
             }
         });
         taskThread.setDaemon(true);
         taskThread.start();
         synchronized (lock) {
-            lock.notify();
+            lock.wait();
         }
     }
 
     @Test
-    public void sideThreadCheck() throws InterruptedException {
-        Object lock = new Object();
-        Thread taskThread = new Thread(() -> {
-            synchronized (lock) {
-                while (true) {
-                    System.out.println("Вечность не бесконечна");
-                    lock.notify();
+    public void sideThreadCheck() throws InterruptedException{
+        Thread sideThread = new Thread(() -> {
+            while (!Thread.currentThread().isInterrupted()) {
+                try {
+                    Thread.sleep(1000);     
+                } catch (InterruptedException e) {
+                    return;
                 }
+                System.out.println("поток");
             }
-        });
-        taskThread.start();
-        synchronized (lock) {
-            long startTime = System.currentTimeMillis();
-            if (System.currentTimeMillis() - startTime >= 5000)
-                lock.wait();
-        }
+        });      
+        sideThread.start();
+        Thread.sleep(5000);   
+        sideThread.interrupt();
     }
-
 }
