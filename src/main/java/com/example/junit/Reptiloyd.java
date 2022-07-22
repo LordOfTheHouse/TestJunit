@@ -41,6 +41,7 @@ public class Reptiloyd {
 
   public void dead() {
     hp = 0;
+    getHp();
   }
 
   public boolean isDead() {
